@@ -11,15 +11,9 @@ html {
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,900|Roboto:400,700,900');
 
-.main,
-.footer,
-.slider {
-  width: 1600px;
-  margin: 0 auto;
-}
 
 .container {
-  width: 1170px;
+  max-width: 1170px;
   padding-left: 30px;
   padding-right: 30px;
   margin: 0 auto;
@@ -31,6 +25,9 @@ html {
 }
   
 .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 40px;
 }
   
@@ -53,17 +50,8 @@ html {
 }
   
 .nav_list {
-  float: right;
-}
-  
-.clearfix::after {
-  content: '';
-  clear: both;
-  display: table;
-}
-  
-.nav_item {  
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
 }
   
 .nav_item a {
@@ -75,6 +63,7 @@ html {
   text-transform: uppercase;
   color: #515151;
   padding: 0 15px;
+  transition: .3s ease-in-out;
 }
   
 .nav_item:last-of-type a {
@@ -91,7 +80,7 @@ html {
   height: 600px;
   background-image: url(../img/slide4.png);
   background-repeat: no-repeat;
-  object-fit: cover;
+  background-position: 50% 50%;
 }
 
 .opacity {
@@ -336,6 +325,7 @@ html {
   text-decoration: none;
   color: #fefefe;
   cursor: pointer;
+  transition: .3s ease-in-out;
 } 
 
 .footer_link:hover {
