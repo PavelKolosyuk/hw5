@@ -75,8 +75,10 @@ html {
   color: #1abc9c;
 }
 
-.slider {    
+.slider {
+  margin: 0 auto;    
   position: relative;
+  max-width: 1600px;
   height: 600px;
   background-image: url(../img/slide4.png);
   background-repeat: no-repeat;
