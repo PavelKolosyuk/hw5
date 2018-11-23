@@ -11,7 +11,6 @@ html {
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,900|Roboto:400,700,900');
 
-
 .container {
   max-width: 1170px;
   padding-left: 30px;
@@ -58,7 +57,7 @@ html {
   text-decoration: none;
   font-size: 14px;
   line-height: 40px;
-  font-family: "OpenSans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   color: #515151;
@@ -78,21 +77,23 @@ html {
 .slider {
   margin: 0 auto;    
   position: relative;
-  max-width: 1600px;
   height: 600px;
   background-image: url(../img/slide4.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  background-size: cover;
 }
 
-.opacity {
+.slider::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 600px;
+  height: 100%;
   background-color: #000002;
   opacity: 0.522;
+  z-index: 1;
 }
 
 .slider_content {
@@ -100,10 +101,11 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  height: 600px;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .slider_comment {
@@ -192,6 +194,7 @@ html {
   width: 255px;
   height: 322px;
   object-fit: cover;
+  z-index: 1;
 }
   
 .price {
@@ -232,22 +235,22 @@ html {
   background: #7fd9c7;
 }
 
-.udisp_icons {
+.collection__item::after {
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
   width: 255px;
   height: 282px;
-  background: transparent;
-  border: 10px solid transparent;
-  opacity: 0.549;
-  transition: .3s ease-in-out;
-}
-
-.collection__item:hover .udisp_icons,
-.collection__item:focus .udisp_icons {
   background: #000;
   border: 10px solid #fff;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity .3s linear;
+}
+
+.collection__item:hover::after {
+  opacity: 0.549;
 }
 
 .icons {
@@ -256,20 +259,23 @@ html {
   top: 0;
   width: 255px;
   height: 282px;
-  display: none;
-}
-
-.collection__item:hover .icons,
-.collection__item:focus .icons {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  z-index: 3;
+  opacity: 0;
+  transition: .3s linear;
+}
+
+.collection__item:hover .icons,
+.collection__item:focus .icons {
+  opacity: 1;
 }
 
 .icon_wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
   
 .icon,
@@ -319,7 +325,7 @@ html {
   font-size: 16px;
   line-height: 88px;
   color: #fefefe;
-  font-family: "OpenSans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-align: center;
 }
 
@@ -328,11 +334,8 @@ html {
   color: #fefefe;
   cursor: pointer;
   transition: .3s ease-in-out;
-} 
+}
 
 .footer_link:hover {
   color: #46bfa9;
-} 
-  
-
-  
+}
